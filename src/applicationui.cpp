@@ -21,8 +21,7 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app)
 : QObject(app),
 	m_invokeManager(new InvokeManager(this))
 {
-	//connect(m_invokeManager, SIGNAL(invoked(const bb::system::InvokeRequest&)), this, SLOT(handleInvoke(const bb::system::InvokeRequest&)));
-    // create scene document from main.qml asset
+	// create scene document from main.qml asset
     // set parent to created document to ensure it exists for the whole application lifetime
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
     qml->setContextProperty("_app", this);
