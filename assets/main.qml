@@ -4,7 +4,7 @@ import bb.cascades 1.0
 // creates one page with a label
 Page {
     property string cal_date
-    property string cal_subject
+    property string cal_subject: "Study the BB10 Snippets Calendar example"
     
     actions: [
         ActionItem {

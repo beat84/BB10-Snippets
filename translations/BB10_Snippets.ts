@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../assets/main.qml" line="21"/>
-        <source>Hello World</source>
+        <source>BB10 Snippets</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -9,13 +9,10 @@
 #include <bb/system/InvokeRequest>
 #include <bb/system/InvokeManager.hpp>
 #include <bb/system/InvokeReply.hpp>
-#include <QDateTime>
 #include <bb/PpsObject>
-#include <bb/pim/calendar/CalendarEvent>
 
 using namespace bb::cascades;
 using namespace bb::system;
-using namespace bb::pim::calendar;
 
 ApplicationUI::ApplicationUI(bb::cascades::Application *app)
 : QObject(app),
