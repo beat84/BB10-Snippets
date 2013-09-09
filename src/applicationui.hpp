@@ -21,6 +21,7 @@ public:
     virtual ~ApplicationUI() {}
 
     Q_INVOKABLE void addToCal(QString date, QString subject);
+    Q_INVOKABLE QString trackerUUID();
 
 private:
     bb::system::InvokeManager *m_invokeManager;

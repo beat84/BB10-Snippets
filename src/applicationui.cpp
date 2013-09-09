@@ -5,11 +5,15 @@
 #include <bb/cascades/QmlDocument>
 #include <bb/cascades/AbstractPane>
 
-//use for calendar
+//used for calendar
 #include <bb/system/InvokeRequest>
 #include <bb/system/InvokeManager.hpp>
 #include <bb/system/InvokeReply.hpp>
 #include <bb/PpsObject>
+
+//used for Tracker
+#include <QUuid>
+#include <bb/device/DisplayInfo>
 
 using namespace bb::cascades;
 using namespace bb::system;
@@ -18,6 +22,8 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app)
 : QObject(app),
 	m_invokeManager(new InvokeManager(this))
 {
+	//add this line to be able to get Display information from QML
+	qmlRegisterType<bb::device::DisplayInfo>("bb.display", 1, 0, "DisplayInfo");
 	// create scene document from main.qml asset
     // set parent to created document to ensure it exists for the whole application lifetime
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
@@ -51,4 +57,13 @@ void ApplicationUI::addToCal(QString date, QString subject){
 	cardRequest.setData(encData);
 	cardRequest.setMetadata(map);
 	InvokeTargetReply* reply = m_invokeManager->invoke(cardRequest);
+}
+
+QString ApplicationUI::trackerUUID(){
+	QString trackerUUID = QUuid::createUuid();
+	trackerUUID = trackerUUID.replace("{","");
+	trackerUUID = trackerUUID.replace("}", "");
+
+	qDebug() << "!!! UUID generated(): "+trackerUUID;
+	return trackerUUID; //to keep the session, you have to store it into the app every time your app is installed. You have to reuse it instead of generate another one every time the app is launched.
 }

@@ -9,7 +9,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="21"/>
+        <location filename="../assets/main.qml" line="23"/>
         <source>BB10 Snippets</source>
         <translation type="unfinished"></translation>
     </message>
